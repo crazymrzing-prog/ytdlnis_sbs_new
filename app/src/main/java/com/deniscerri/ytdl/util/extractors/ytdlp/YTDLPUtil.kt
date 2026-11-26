@@ -67,6 +67,7 @@ class YTDLPUtil(private val context: Context, private val commandTemplateDao: Co
     private val handler = Handler(Looper.getMainLooper())
 
     private fun YTDLRequest.applyDefaultOptionsForFetchingData(url: String?) {
+        addOption("--plugin-dirs", FileUtil.getBundledYTDLPPluginsPath(context))
         addOption("--skip-download")
         addOption("--quiet")
         addOption("--ignore-errors")
